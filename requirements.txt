@@ -1,0 +1,8 @@
+streamlit
+groq
+chromadb
+sentence-transformers
+numpy
+speechrecognition
+elevenlabs
+pygame
