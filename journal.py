@@ -74,3 +74,9 @@ Write:
 - One line of encouragement
 """
     return prompt
+# ----------------------------
+# Get all journal entries (for UI & dashboard)
+# ----------------------------
+def get_all_journal_entries():
+    return load_journal()
+

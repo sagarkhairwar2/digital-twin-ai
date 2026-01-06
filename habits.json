@@ -1,9 +1,10 @@
 {
     "study": {
         "days_done": [
-            "2026-01-01"
+            "2026-01-01",
+            "2026-01-06"
         ],
-        "streak": 1
+        "streak": 2
     },
     "you:  coding": {
         "days_done": [
@@ -14,6 +15,12 @@
     "coding": {
         "days_done": [
             "2026-01-02"
+        ],
+        "streak": 1
+    },
+    "code": {
+        "days_done": [
+            "2026-01-06"
         ],
         "streak": 1
     }

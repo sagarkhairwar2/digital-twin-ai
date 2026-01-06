@@ -1,7 +1,8 @@
+
 from digital_twin import ai_reply
 from voice import listen, speak
 from journal import build_journal_summary_prompt
-from digital_twin import ai_reply, client
+
 
 print("🤖 Digital Twin — Text & Voice Mode Active!")
 print("Type 'voice' to switch to voice input.")

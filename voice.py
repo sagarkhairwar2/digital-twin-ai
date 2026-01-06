@@ -1,8 +1,27 @@
 # voice.py  — FINAL WORKING VERSION
+
+import os
+import io
+IS_STREAMLIT = False
+try:
+    import streamlit as st
+    IS_STREAMLIT = True
+except:
+    pass
 import speech_recognition as sr
 from elevenlabs import ElevenLabs, Voice, VoiceSettings
-import pygame
-import io
+#Audio playback local only
+if not IS_STREAMLIT:
+    import pygame
+
+if IS_STREAMLIT:
+    ELEVEN_API_KEY = st.secrets["ELEVENLABS_API_KEY"]
+else:
+    ELEVEN_API_KEY = os.getenv("ELEVENLABS_API_KEY")
+
+client = ElevenLabs(api_key=ELEVEN_API_KEY)
+
+VOICE_ID = "pNInz6obpgDQGcFmaJgB"
 
 
 # --------------------------------------
@@ -27,14 +46,16 @@ def listen():
 # 2. Text-to-Speech (Handles ELEVENLABS properly)
 # --------------------------------------
 
-ELEVEN_API_KEY = os.getenv("ELEVENLABS_API_KEY")
+"""ELEVEN_API_KEY = st.secrets("ELEVENLABS_API_KEY")
 
 VOICE_ID = "pNInz6obpgDQGcFmaJgB"   # You can change to any ElevenLabs voice
-
+"""
 
 def speak(text):
     print("🗣 Twin (speaking):", text)
-
+    # Sisable voice output in streamlit
+    if IS_STREAMLIT:
+        return
     # Generate audio as REAL bytes
     audio_bytes = client.text_to_speech.convert(
         voice_id=VOICE_ID,

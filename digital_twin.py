@@ -1,4 +1,5 @@
 import os
+import streamlit as st
 from groq import Groq
 import chromadb
 from sentence_transformers import SentenceTransformer
@@ -20,7 +21,7 @@ MAX_HISTORY = 5   # store last 5 messages
 # CONFIG
 # ----------------------------
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 # Embedding model
 embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
 
@@ -139,6 +140,12 @@ If no important fact, return "".
     )
 
     return response.choices[0].message.content.strip()
+    # AUTO-JOURNAL ENTRY
+    add_journal_entry(
+        text=f"You said: {user_input}\nTwin replied: {ai_output}",
+        mood=get_today_mood(),
+        habits_done=list(get_habit_stats().keys())
+    )
 # ----------------------------
 # AI DIGITAL TWIN REPLY
 # ----------------------------
@@ -179,7 +186,11 @@ def ai_reply(user_input):
     # Store mood if detected
     if user_mood:
         add_mood(user_mood)
-
+        """add_journal_entry(
+            text=f"Mood detected: {user_mood}",
+            mood=user_mood,
+            habits_done=[]
+        )"""
     
 
     # 4. System prompt
@@ -220,12 +231,7 @@ RULES:
         conversation_history.pop(0)
 
 
-    # AUTO-JOURNAL ENTRY
-    add_journal_entry(
-        text=f"You said: {user_input}\nTwin replied: {ai_output}",
-        mood=get_today_mood(),
-        habits_done=list(get_habit_stats().keys())
-    )
+
 
     return ai_output
 

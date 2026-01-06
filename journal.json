@@ -21,5 +21,27 @@
             "study",
             "you:  coding"
         ]
+    },
+    "2026-01-06": {
+        "entries": [
+            "You said: hey there, nice to meet you. \nTwin replied: hey bro, nice to meet you too yrr. what's up? how's your day going so far?",
+            "You said: good but classes are so hektic right now \nTwin replied: yrr I know how you feel, bro! Exams are coming up and studies are in full swing. What's stressing you the most - the workload or something else?",
+            "You said: the workload\nTwin replied: bro. don't be too hard on yourself, okay? You've got this! Remind yourself, the 14-hour project, it'll get done, yrr? Break it down into smaller chunks, and you'll be laughing in no time. What specific part of the workload is stressing you out? Is it a particular assignment or just the general feel of too much stuff to do?"
+        ],
+        "mood": null,
+        "habits": [
+            "study",
+            "you:  coding",
+            "coding"
+        ]
+    },
+    "2026-01-07": {
+        "entries": [
+            "Mood detected: Happy",
+            "Mood detected: Happy",
+            "Finally I created this web app for my use. I just made it for me I don't need any validation for creating this because if no one use it no problem. I will update digital twin ai later for further revision reminder, voice assistant and other. But for right now it's completed."
+        ],
+        "mood": "Happy",
+        "habits": []
     }
 }
